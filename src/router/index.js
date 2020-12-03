@@ -6,19 +6,43 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        component: () => import('@/views/Index')
+    },
+    {
+        path: '/home',
         component: () => import('@/views/Home')
     },
     {
         path: '/about',
-        name: 'About',
-        component: () => import('@/views/About.vue')
+        component: () => import('@/views/About')
+    },
+    {
+        path: '/login',
+        component: () => import('@/views/Login')
+    },
+    {
+        path: '/signup',
+        component: () => import('@/views/Signup')
+    },
+    {
+        path: '/404',
+        component: () => import('@/views/404')
+    },
+    {
+        path: '*',
+        component: () => import('@/views/404')
     }
 ]
 
 const router = new VueRouter({
-    // mode: 'history',
+    //mode: 'history',
     routes
 })
+
+// router.beforeEach(
+//     (to,from,next)=>{
+//
+//     }
+// )
 
 export default router
